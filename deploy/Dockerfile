@@ -12,4 +12,4 @@ USER pyuser
 COPY ./backend /home/pyuser/backend
 WORKDIR /home/pyuser/backend
 
-CMD gunicorn -k uvicorn.workers.UvicornWorker --bind :$PORT --workers 1 --threads 8 --timeout 0 app:app
+CMD flask run -h 0.0.0.0 -p $PORT
