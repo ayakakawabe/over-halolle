@@ -7,7 +7,7 @@ docker build -t backend -f deploy/Dockerfile .
 ```
 2. コンテナの起動
 ```
-docker run -e PORT=8000 -e DB_URI=sqlite:////home/pyuser/backend/db/db.sqlite3 backend
+docker run -e PORT=8000 -p 8000:8000 -e DB_URI=sqlite:////home/pyuser/backend/db/db.sqlite3 backend
 ```
 
 ## Quick Start
