@@ -1,5 +1,15 @@
 # over-halolle
 
+## Deploy
+1. コンテナをビルド
+```
+docker build -t backend -f deploy/Dockerfile .
+```
+2. コンテナの起動
+```
+docker run -e PORT=8000 -e DB_URI=sqlite:////home/pyuser/backend/db/db.sqlite3 backend
+```
+
 ## Quick Start
 
 1. コンテナを起動
