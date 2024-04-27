@@ -1,4 +1,4 @@
-from backend import create_app
+from . import create_app
 from flask_cors import CORS
 
 app = create_app()
@@ -11,4 +11,4 @@ CORS(
 )
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
