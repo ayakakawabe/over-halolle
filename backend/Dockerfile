@@ -1,4 +1,5 @@
 FROM python:3.11.9-slim-bullseye
+ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && apt-get -y install sqlite3 && \
     groupadd -g 1100 pyuser && \
@@ -12,4 +13,4 @@ USER pyuser
 COPY . /home/pyuser/backend
 WORKDIR /home/pyuser/backend
 
-CMD flask run -h 0.0.0.0 -p $PORT
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 "app:create_app()"
